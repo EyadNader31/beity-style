@@ -12,6 +12,7 @@ export default function AdminDashboard() {
 
         <Link href="/admin/products">
           <div className="bg-white p-8 rounded-3xl shadow cursor-pointer hover:scale-105 transition">
+
             <h2 className="text-3xl font-bold">
               Products
             </h2>
@@ -19,11 +20,13 @@ export default function AdminDashboard() {
             <p className="mt-3">
               Add and manage products
             </p>
+
           </div>
         </Link>
 
         <Link href="/admin/orders">
           <div className="bg-white p-8 rounded-3xl shadow cursor-pointer hover:scale-105 transition">
+
             <h2 className="text-3xl font-bold">
               Orders
             </h2>
@@ -31,6 +34,7 @@ export default function AdminDashboard() {
             <p className="mt-3">
               View customer orders
             </p>
+
           </div>
         </Link>
 

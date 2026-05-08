@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { supabase } from '@/lib/supabase'
 
 export default function AdminProductsPage() {
+
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
@@ -58,27 +59,27 @@ export default function AdminProductsPage() {
   }
 
   return (
-    <main className="min-h-screen p-10 bg-[#f7f1ea]">
+    <main className="min-h-screen bg-[#f7f1ea] p-10">
 
-      <h1 className="text-5xl font-bold mb-10">
+      <h1 className="text-6xl font-bold mb-10">
         Add Product
       </h1>
 
-      <div className="max-w-xl bg-white p-8 rounded-3xl shadow">
+      <div className="bg-white p-10 rounded-3xl shadow-xl max-w-4xl">
 
         <input
           type="text"
           placeholder="Product name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full border p-4 rounded-xl mb-4"
+          className="w-full border-2 border-black rounded-2xl p-5 text-2xl mb-6"
         />
 
         <textarea
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="w-full border p-4 rounded-xl mb-4"
+          className="w-full border border-black rounded-2xl p-5 text-2xl mb-6 h-40"
         />
 
         <input
@@ -86,7 +87,7 @@ export default function AdminProductsPage() {
           placeholder="Price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
-          className="w-full border p-4 rounded-xl mb-4"
+          className="w-full border border-black rounded-2xl p-5 text-2xl mb-6"
         />
 
         <input
@@ -97,12 +98,12 @@ export default function AdminProductsPage() {
               setImage(e.target.files[0])
             }
           }}
-          className="w-full border p-4 rounded-xl mb-6"
+          className="w-full border border-black rounded-2xl p-5 text-xl mb-8"
         />
 
         <button
           onClick={addProduct}
-          className="bg-[#7a5c48] text-white px-8 py-4 rounded-2xl"
+          className="bg-[#8b6b4a] text-white px-10 py-5 rounded-2xl text-2xl"
         >
           Add Product
         </button>

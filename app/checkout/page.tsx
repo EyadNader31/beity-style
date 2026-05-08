@@ -1,26 +1,26 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 
-
-export default function CheckoutPage() {
+function CheckoutContent() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [address, setAddress] = useState('')
   const [productName, setProductName] = useState('')
   const [quantity, setQuantity] = useState(1)
   const [price, setPrice] = useState(0)
+
   const searchParams = useSearchParams()
 
-useEffect(() => {
-  const product = searchParams.get('product')
-  const price = searchParams.get('price')
+  useEffect(() => {
+    const product = searchParams.get('product')
+    const price = searchParams.get('price')
 
-  if (product) setProductName(product)
-  if (price) setPrice(Number(price))
-}, [])
+    if (product) setProductName(product)
+    if (price) setPrice(Number(price))
+  }, [searchParams])
 
   async function placeOrder() {
     const total = Number(price) * Number(quantity)
@@ -42,7 +42,7 @@ useEffect(() => {
       return
     }
 
-    alert('Order placed successfully (Cash on Delivery) ✅')
+    alert('Order placed successfully ✅')
 
     setName('')
     setPhone('')
@@ -54,7 +54,6 @@ useEffect(() => {
 
   return (
     <main className="min-h-screen p-10 bg-[#f7f1ea]">
-
       <h1 className="text-4xl font-bold mb-8">
         Cash on Delivery Checkout
       </h1>
@@ -109,11 +108,18 @@ useEffect(() => {
           onClick={placeOrder}
           className="w-full bg-[#7a5c48] text-white py-3 rounded-2xl"
         >
-          Place Order (Cash on Delivery)
+          Place Order
         </button>
 
       </div>
-
     </main>
+  )
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CheckoutContent />
+    </Suspense>
   )
 }

@@ -2,6 +2,7 @@ import { supabase } from '@/lib/supabase'
 import Link from 'next/link'
 
 export default async function ProductsPage() {
+
   const { data: products } = await supabase
     .from('products')
     .select('*')

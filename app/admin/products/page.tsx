@@ -10,6 +10,7 @@ export default function AdminProductsPage() {
   const [image, setImage] = useState<File | null>(null)
 
   async function addProduct() {
+
     if (!image) {
       alert('Please select an image')
       return
@@ -58,6 +59,7 @@ export default function AdminProductsPage() {
 
   return (
     <main className="min-h-screen p-10 bg-[#f7f1ea]">
+
       <h1 className="text-5xl font-bold mb-10">
         Add Product
       </h1>
@@ -71,7 +73,8 @@ export default function AdminProductsPage() {
           onChange={(e) => setName(e.target.value)}
           className="w-full border p-4 rounded-xl mb-4"
         />
-         <textarea
+
+        <textarea
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -105,6 +108,7 @@ export default function AdminProductsPage() {
         </button>
 
       </div>
+
     </main>
   )
 }

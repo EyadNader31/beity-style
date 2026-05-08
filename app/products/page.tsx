@@ -21,6 +21,12 @@ export default async function ProductsPage() {
             className="bg-white rounded-3xl shadow-lg p-6"
           >
 
+            <img
+              src={product.image_url}
+              alt={product.name}
+              className="w-full h-64 object-cover rounded-2xl mb-4"
+            />
+
             <h2 className="text-2xl font-bold">
               {product.name}
             </h2>
@@ -33,11 +39,13 @@ export default async function ProductsPage() {
               {product.price} EGP
             </p>
 
-            <Link href={`/checkout?product=${product.name}&price=${product.price}`}>
-  <button className="mt-5 w-full bg-[#7a5c48] text-white py-3 rounded-2xl">
-    Order Now
-  </button>
-</Link>
+            <Link
+              href={`/checkout?product=${product.name}&price=${product.price}`}
+            >
+              <button className="mt-5 w-full bg-[#7a5c48] text-white py-3 rounded-2xl">
+                Order Now
+              </button>
+            </Link>
 
           </div>
         ))}
